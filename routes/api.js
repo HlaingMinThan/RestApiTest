@@ -9,7 +9,9 @@ router.get('/users',(req,res)=>{
 // create user data 
 router.post('/users',(req,res)=>{
     res.send({
-        type:"POST"
+        name:req.body.name,
+        age:req.body.age,
+        job:req.body.job
     });
 });
 // edit user data 

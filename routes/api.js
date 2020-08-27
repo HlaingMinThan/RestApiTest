@@ -5,9 +5,9 @@ const router=express.Router();
 const User=require('../models/user');
 // get user data 
 router.get('/users',(req,res)=>{
-    res.send({
-        type:"GET"
-    });
+    User.find({}).then(users=>{
+        res.send(users);
+    })
 });
 // create user data 
 router.post('/users',(req,res)=>{

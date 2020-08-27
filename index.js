@@ -3,6 +3,8 @@ const bodyParser=require('body-parser');
 
 const app=express();
 
+// access public file for frontend page
+app.use(express.static('public'));
 // connect mongodb
 const mongoose=require('mongoose');
 mongoose.connect('mongodb://localhost/userData');

@@ -23,8 +23,8 @@ router.put('/users/:id',(req,res)=>{
 });
 // delete user data 
 router.delete('/users/:id',(req,res)=>{
-    res.send({
-        type:"DELETE"
-    });
+   User.findByIdAndDelete({_id:req.params.id}).then((user)=>{
+        res.send(user);
+   });
 });
 module.exports=router;

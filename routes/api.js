@@ -17,9 +17,11 @@ router.post('/users',(req,res)=>{
 });
 // edit user data 
 router.put('/users/:id',(req,res)=>{
-    res.send({
-        type:"PUT"
-    });
+   User.findByIdAndUpdate({_id:req.params.id},req.body).then(()=>{
+       User.findOne({_id:req.params.id}).then((user)=>{
+           res.send(user);
+       })
+   })
 });
 // delete user data 
 router.delete('/users/:id',(req,res)=>{

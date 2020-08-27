@@ -1,5 +1,8 @@
 const express=require('express');
 const router=express.Router();
+
+// Import User Model
+const User=require('../models/user');
 // get user data 
 router.get('/users',(req,res)=>{
     res.send({
@@ -8,10 +11,8 @@ router.get('/users',(req,res)=>{
 });
 // create user data 
 router.post('/users',(req,res)=>{
-    res.send({
-        name:req.body.name,
-        age:req.body.age,
-        job:req.body.job
+    User.create(req.body).then(user=>{
+        res.send(user);
     });
 });
 // edit user data 
